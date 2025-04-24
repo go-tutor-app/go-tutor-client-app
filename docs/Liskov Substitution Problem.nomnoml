@@ -1,0 +1,15 @@
+#direction: right
+#fill: #fefefe
+#lineWidth: 2
+#stroke: #333
+#fontSize: 14
+
+[<interface> Lesson|
+  + play()
+]
+
+[VideoLesson|+ play() // stream a video] --> [Lesson]
+[TextLesson|+ play() // generate contents] --> [Lesson]
+[QuizLesson|+ play() // throws or does nothing 🚫 as it needs user interaction] --> [Lesson]
+
+[ClientCode|+ showLesson(Lesson l)] -> [Lesson]

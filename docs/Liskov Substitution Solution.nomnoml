@@ -1,0 +1,31 @@
+#direction: right
+#fill: #fefefe
+#lineWidth: 2
+#stroke: #333
+#fontSize: 14
+
+[<interface> PlayableLesson|
+  + play()
+]
+
+[<interface> InteractiveLesson|
+  + interact()
+]
+
+[Lesson]
+
+[VideoLesson|
+  + play() // stream a video
+] --> [PlayableLesson]
+[VideoLesson] --:> [Lesson]
+
+[TextLesson|
+  + play() // display text content
+] --> [PlayableLesson]
+[TextLesson] --:> [Lesson]
+
+[QuizLesson|
+  + interact() // requires user input
+] --> [InteractiveLesson]
+[QuizLesson] --:> [Lesson]
+

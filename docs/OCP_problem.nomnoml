@@ -1,0 +1,22 @@
+#direction: right
+#fontSize: 13
+#stroke: #333
+#fill: #fefefe
+#padding: 10
+
+
+[LessonManager|
+  + generateLesson()
+  + generateVideoLesson()
+  + generateQuizLesson()
+]
+
+[VideoLesson]
+[QuizLesson]
+
+[LessonManager] --> [VideoLesson]
+[LessonManager] --> [QuizLesson]
+
+
+
+

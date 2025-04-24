@@ -1,0 +1,26 @@
+#direction: right
+#fill: #fefefe
+#stroke: #333
+#lineWidth: 2
+#fontSize: 14
+
+[PerformanceFacade|
++ getStudentPerformance
++ getLessonRecommendations
+]
+
+[PerformanceFacade] --> [ScoreCalculator|
++ calculateScore
+]
+[PerformanceFacade] --> [LessonSuggester|
++ suggestLessons
+]
+[PerformanceFacade] --> [TrendAnalyzer|
++ analyzeTrends
+]
+
+[ScoreCalculator] --> [StudentData]
+[LessonSuggester] --> [StudentData]
+[TrendAnalyzer] --> [StudentData]
+
+[StudentData]

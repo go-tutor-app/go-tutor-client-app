@@ -1,0 +1,22 @@
+#direction: right
+#fill: #fefefe
+#lineWidth: 2
+#stroke: #333
+#fontSize: 14
+
+[LessonManager|
+  - generator: LessonGenerator
+  - lessons: List<Lesson>
+  + generateLesson()
+]
+
+[<interface> LessonGeneratorStrategy|
+  + generate(lessonData)
+]
+
+[QuestionLessonGenerator|+ generate(lessonData)] implement--> [LessonGeneratorStrategy]
+[VideoLessonGenerator|+ generate(lessonData)] implement--> [LessonGeneratorStrategy]
+[InteractiveLessonGenerator|+ generate(lessonData)] implement--> [LessonGeneratorStrategy]
+
+[LessonManager] strategy- [LessonGeneratorStrategy]
+[lessons.sort(lessons)] - [LessonManager]

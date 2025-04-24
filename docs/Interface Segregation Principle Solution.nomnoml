@@ -1,0 +1,25 @@
+#direction: right
+#fill: #fefefe
+#lineWidth: 2
+#stroke: #333
+#fontSize: 14
+
+[<interface> Learner|
+  + ViewLessons()
+  + JoinLiveClass()
+]
+
+[<interface> InstructorRole|
+  + UploadContent()
+  + GradeStudent()
+]
+
+[<interface> AdminRole|
+  + ManageUsers()
+  + ViewReports()
+]
+
+[Student] --> [Learner]
+[Instructor] --> [Learner]
+[Instructor] --> [InstructorRole]
+[Admin] --> [AdminRole]

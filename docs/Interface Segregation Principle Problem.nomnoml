@@ -1,0 +1,18 @@
+#direction: right
+#fill: #fefefe
+#lineWidth: 2
+#stroke: #333
+#fontSize: 14
+
+[<interface> UserInterface|
+  + ViewLessons()
+  + UploadContent()
+  + GradeStudent()
+  + JoinLiveClass()
+]
+
+[Student] --> [UserInterface]
+[Instructor] --> [UserInterface]
+[Admin] --> [UserInterface]
+
+

@@ -1,0 +1,23 @@
+#direction: bottom
+#fill: #fefefe
+#lineWidth: 2
+#stroke: #333
+#fontSize: 14
+
+// This algorithm is used by both:
+// - The RecommendationEngine, which prioritizes recent scores to suggest new lessons
+// - The InstructorDashboard, which aggregates long-term performance trends for educators
+
+[<actor> Instructor] - "view student analytics like long-term learning trend" -> [InstructorDashboard]
+[<actor> Student] - "get lesson suggestions" -> [RecommendationEngine]
+
+[InstructorDashboard] --> [AnalyzePerformance]
+[RecommendationEngine] --> [AnalyzePerformance]
+
+[AnalyzePerformance|
+  + calculateStudentScore()
+  + suggestNewStudentLessons()
+  + calculateLongTermStudentPerformanceTrends()
+] --> [SharedScoringAlgorithm|
+  + calculateStudentScore()
+]
